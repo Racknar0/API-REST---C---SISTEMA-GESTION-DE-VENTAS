@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Proyecto_Coder
+﻿
+namespace Proyecto_Coder.Models
 {
     public class ProductoVendido
     {
@@ -17,10 +12,10 @@ namespace Proyecto_Coder
 
         public ProductoVendido(int id, int idProducto, int stock, int idVenta)
         {
-            this.Id = id;
-            this.IdProducto = idProducto;
-            this.Stock = stock;
-            this.IdVenta = idVenta;
+            Id = id;
+            IdProducto = idProducto;
+            Stock = stock;
+            IdVenta = idVenta;
         }
     }
 }
