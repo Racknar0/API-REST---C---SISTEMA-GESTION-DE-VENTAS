@@ -1,0 +1,133 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "SistemaGestionBusiness/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "SistemaGestionData": "1.0.0",
+          "SistemaGestionEntities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SistemaGestionBusiness.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SistemaGestionBusiness.dll": {}
+        }
+      },
+      "SistemaGestionData/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "SistemaGestionEntities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SistemaGestionData.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SistemaGestionData.dll": {}
+        }
+      },
+      "SistemaGestionEntities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SistemaGestionEntities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SistemaGestionEntities.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SistemaGestionBusiness/1.0.0": {
+      "type": "project",
+      "path": "../SistemaGestionBusiness/SistemaGestionBusiness.csproj",
+      "msbuildProject": "../SistemaGestionBusiness/SistemaGestionBusiness.csproj"
+    },
+    "SistemaGestionData/1.0.0": {
+      "type": "project",
+      "path": "../SistemaGestionData/SistemaGestionData.csproj",
+      "msbuildProject": "../SistemaGestionData/SistemaGestionData.csproj"
+    },
+    "SistemaGestionEntities/1.0.0": {
+      "type": "project",
+      "path": "../SistemaGestionEntities/SistemaGestionEntities.csproj",
+      "msbuildProject": "../SistemaGestionEntities/SistemaGestionEntities.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "SistemaGestionBusiness >= 1.0.0",
+      "SistemaGestionEntities >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Racknaro\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "H:\\FULL STACK\\22 C#\\_C# CoderHouse_1\\Proyecto_Coder\\SistemaGestionUI\\SistemaGestionUI.csproj",
+      "projectName": "SistemaGestionUI",
+      "projectPath": "H:\\FULL STACK\\22 C#\\_C# CoderHouse_1\\Proyecto_Coder\\SistemaGestionUI\\SistemaGestionUI.csproj",
+      "packagesPath": "C:\\Users\\Racknaro\\.nuget\\packages\\",
+      "outputPath": "H:\\FULL STACK\\22 C#\\_C# CoderHouse_1\\Proyecto_Coder\\SistemaGestionUI\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Racknaro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://pkgs.dev.azure.com/TP-Solution-Delivery-CO/Externos/_packaging/Externos/nuget/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "H:\\FULL STACK\\22 C#\\_C# CoderHouse_1\\Proyecto_Coder\\SistemaGestionBusiness\\SistemaGestionBusiness.csproj": {
+              "projectPath": "H:\\FULL STACK\\22 C#\\_C# CoderHouse_1\\Proyecto_Coder\\SistemaGestionBusiness\\SistemaGestionBusiness.csproj"
+            },
+            "H:\\FULL STACK\\22 C#\\_C# CoderHouse_1\\Proyecto_Coder\\SistemaGestionEntities\\SistemaGestionEntities.csproj": {
+              "projectPath": "H:\\FULL STACK\\22 C#\\_C# CoderHouse_1\\Proyecto_Coder\\SistemaGestionEntities\\SistemaGestionEntities.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

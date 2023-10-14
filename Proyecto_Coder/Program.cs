@@ -1,5 +1,6 @@
-﻿using Proyecto_Coder.DataAccess;
-using Proyecto_Coder.Models;
+﻿using SistemaGestionBusiness;
+using SistemaGestionEntities;
+
 
 
 static void MostrarMenu()
@@ -260,34 +261,32 @@ static void EjecutarOperacionesVenta()
 // Operaciones de Usuario
 static void ObtenerUsuario()
 {
-    // Crear instancia del DAO de Usuario
-    UsuarioDAO usuarioDAO = new UsuarioDAO();
+    // Crear instancia de UsuarioBusiness 
+    UsuarioBusiness User = new UsuarioBusiness();
     Console.WriteLine("-----------------OBTENER UN USUARIO----------------------");
     // Obtener un usuario por su id
     Console.WriteLine("Ingrese el id del usuario a obtener: ");
     int idUsuario = Convert.ToInt32(Console.ReadLine());
-    Usuario usuario = usuarioDAO.GetUsuario(idUsuario);
+    Usuario usuario = User.GetUsuarioBussines(idUsuario);
     Console.WriteLine($"El usuario con id {usuario.Id} es \n ID: {usuario.Id} \n Nombre: {usuario.Nombre} \n Apellido: {usuario.Apellido} \n Nombre de usuario: {usuario.NombreUsuario} \n Contraseña: {usuario.Contrasenia} \n Mail: {usuario.Mail}");
-}   
+}
 
 static void ObtenerTodosLosUsuarios()
 {
-    // Crear instancia del DAO de Usuario
-    UsuarioDAO usuarioDAO = new UsuarioDAO();
+    UsuarioBusiness User = new UsuarioBusiness();
     Console.WriteLine("-----------------OBTENER TODOS LOS USUARIOS----------------------");
     // Obtener todos los usuarios
-    List<Usuario> usuarios = usuarioDAO.GetAllUsuarios();
+    List<Usuario> usuarios = User.GetAllUsuariosBussines();
     // Imprimir todos los usuarios
     foreach (Usuario u in usuarios)
     {
         Console.WriteLine($"El usuario con id {u.Id} es \n ID: {u.Id} \n Nombre: {u.Nombre} \n Apellido: {u.Apellido} \n Nombre de usuario: {u.NombreUsuario} \n Contraseña: {u.Contrasenia} \n Mail: {u.Mail}");
     }
-}       
+}
 
 static void CrearUsuario()
 {
-    // Crear instancia del DAO de Usuario
-    UsuarioDAO usuarioDAO = new UsuarioDAO();
+    UsuarioBusiness User = new UsuarioBusiness();
     Console.WriteLine("-----------------CREAR UN USUARIO----------------------");
     Usuario usuarioNuevo = new Usuario();
     Console.WriteLine("Ingrese el nombre del usuario: ");
@@ -301,14 +300,13 @@ static void CrearUsuario()
     Console.WriteLine("Ingrese el mail del usuario: ");
     usuarioNuevo.Mail = Console.ReadLine();
 
-    int idUsuarioNuevo = usuarioDAO.AddUsuario(usuarioNuevo);
+    int idUsuarioNuevo = User.AddUsuarioBussines(usuarioNuevo);
     Console.WriteLine($"El id del usuario nuevo es {idUsuarioNuevo}");
 }
 
 static void ActualizarUsuario()
 {
-    // Crear instancia del DAO de Usuario
-    UsuarioDAO usuarioDAO = new UsuarioDAO();
+    UsuarioBusiness User = new UsuarioBusiness();
     Console.WriteLine("-----------------ACTUALIZAR UN USUARIO----------------------");
     Usuario usuarioAActualizar = new Usuario();
     Console.WriteLine("Ingrese el id del usuario a actualizar: ");
@@ -324,18 +322,17 @@ static void ActualizarUsuario()
     Console.WriteLine("Ingrese el mail del usuario: ");
     usuarioAActualizar.Mail = Console.ReadLine();
 
-    Usuario usuarioActualizado = usuarioDAO.UpdateUsuario(usuarioAActualizar);
+    Usuario usuarioActualizado = User.UpdateUsuarioBussines(usuarioAActualizar);
     Console.WriteLine($"El usuario actualizado es \n ID: {usuarioActualizado.Id} \n Nombre: {usuarioActualizado.Nombre} \n Apellido: {usuarioActualizado.Apellido} \n Nombre de usuario: {usuarioActualizado.NombreUsuario} \n Contraseña: {usuarioActualizado.Contrasenia} \n Mail: {usuarioActualizado.Mail}");
 }
 
 static void EliminarUsuario()
 {
-    // Crear instancia del DAO de Usuario
-    UsuarioDAO usuarioDAO = new UsuarioDAO();
+    UsuarioBusiness User = new UsuarioBusiness();
     Console.WriteLine("-----------------ELIMINAR UN USUARIO----------------------");
     Console.WriteLine("Ingrese el id del usuario a eliminar: ");
     int idUsuario = Convert.ToInt32(Console.ReadLine());
-    int usuarioEliminado = usuarioDAO.DeleteUsuario(idUsuario);
+    int usuarioEliminado = User.DeleteUsuarioBussines(idUsuario);
     Console.WriteLine($"El usuario eliminado es {usuarioEliminado}");
 }
 
@@ -346,23 +343,21 @@ static void EliminarUsuario()
 // Operaciones de Producto
 static void ObtenerProducto()
 {
-    // Crear instancia del DAO de Producto
-    ProductoDAO productoDAO = new ProductoDAO();
+    ProductoBusiness Product = new ProductoBusiness();
     Console.WriteLine("-----------------OBTENER UN PRODUCTO----------------------");
     // Obtener un producto por su id
     Console.WriteLine("Ingrese el id del producto a obtener: ");
     int idProducto = Convert.ToInt32(Console.ReadLine());
-    Producto producto = productoDAO.GetProducto(idProducto);
+    Producto producto = Product.GetProductoBussines(idProducto);
     Console.WriteLine($"El producto con id {producto.Id} es \n ID: {producto.Id} \n Descripcion: {producto.Descripcion} \n Costo: {producto.Costo} \n Precio de venta: {producto.PrecioVenta} \n Stock: {producto.Stock} \n Id Usuario: {producto.IdUsuario}");
 }
 
 static void ObtenerTodosLosProducto()
 {
-    // Crear instancia del DAO de Producto
-    ProductoDAO productoDAO = new ProductoDAO();
+    ProductoBusiness Product = new ProductoBusiness();
     Console.WriteLine("-----------------OBTENER TODOS LOS PRODUCTOS----------------------");
     // Obtener todos los productos
-    List<Producto> productos = productoDAO.GetAllProductos();
+    List<Producto> productos = Product.GetAllProductosBussines();
     // Imprimir todos los productos
     foreach (Producto p in productos)
     {
@@ -372,8 +367,7 @@ static void ObtenerTodosLosProducto()
 
 static void CrearProducto()
 {
-    // Crear instancia del DAO de Producto
-    ProductoDAO productoDAO = new ProductoDAO();
+    ProductoBusiness Product = new ProductoBusiness();
     Console.WriteLine("-----------------CREAR UN PRODUCTO----------------------");
     Producto productoNuevo = new Producto();
     Console.WriteLine("Ingrese la descripcion del producto: ");
@@ -387,14 +381,13 @@ static void CrearProducto()
     Console.WriteLine("Ingrese el id del usuario: ");
     productoNuevo.IdUsuario = Convert.ToInt32(Console.ReadLine());
 
-    int idProductoNuevo = productoDAO.AddProducto(productoNuevo);
+    int idProductoNuevo = Product.AddProductoBussines(productoNuevo);
     Console.WriteLine($"El id del producto nuevo es {idProductoNuevo}");
 }
 
 static void ActualizarProducto()
 {
-    // Crear instancia del DAO de Producto
-    ProductoDAO productoDAO = new ProductoDAO();
+    ProductoBusiness Product = new ProductoBusiness();
     Console.WriteLine("-----------------ACTUALIZAR UN PRODUCTO----------------------");
     Producto productoAActualizar = new Producto();
     Console.WriteLine("Ingrese el id del producto a actualizar: ");
@@ -410,18 +403,17 @@ static void ActualizarProducto()
     Console.WriteLine("Ingrese el id del usuario: ");
     productoAActualizar.IdUsuario = Convert.ToInt32(Console.ReadLine());
 
-    Producto productoActualizado = productoDAO.UpdateProducto(productoAActualizar);
+    Producto productoActualizado = Product.UpdateProductoBussines(productoAActualizar);
     Console.WriteLine($"El producto actualizado es \n ID: {productoActualizado.Id} \n Descripcion: {productoActualizado.Descripcion} \n Costo: {productoActualizado.Costo} \n Precio de venta: {productoActualizado.PrecioVenta} \n Stock: {productoActualizado.Stock} \n Id Usuario: {productoActualizado.IdUsuario}");
 }
 
 static void EliminarProducto()
 {
-    // Crear instancia del DAO de Producto
-    ProductoDAO productoDAO = new ProductoDAO();
+    ProductoBusiness Product = new ProductoBusiness();
     Console.WriteLine("-----------------ELIMINAR UN PRODUCTO----------------------");
     Console.WriteLine("Ingrese el id del producto a eliminar: ");
     int idProducto = Convert.ToInt32(Console.ReadLine());
-    int productoEliminado = productoDAO.DeleteProducto(idProducto);
+    int productoEliminado = Product.DeleteProductoBussines(idProducto);
     Console.WriteLine($"El producto eliminado es {productoEliminado}");
 }
 
@@ -431,19 +423,19 @@ static void EliminarProducto()
 
 static void ObtenerProductoVendido()
 {
-    ProductoVendidoDAO productoVendidoDAO = new ProductoVendidoDAO();
+    ProductoVendidoBusiness ProductSell = new ProductoVendidoBusiness();
     Console.WriteLine("-----------------OBTENER UN PRODUCTO VENDIDO----------------------");
     Console.WriteLine("Ingrese el id del producto vendido a obtener: ");
     int idProductoVendido = Convert.ToInt32(Console.ReadLine());
-    ProductoVendido productoVendido = productoVendidoDAO.GetProductoVendido(idProductoVendido);
+    ProductoVendido productoVendido = ProductSell.GetProductoVendidoBussines(idProductoVendido);
     Console.WriteLine($"El producto vendido con id {productoVendido.Id} es \n ID: {productoVendido.Id} \n ID del Producto: {productoVendido.IdProducto} \n Stock: {productoVendido.Stock} \n ID de Venta: {productoVendido.IdVenta}");
 }
 
 static void ObtenerTodosLosProductosVendidos()
 {
-    ProductoVendidoDAO productoVendidoDAO = new ProductoVendidoDAO();
+    ProductoVendidoBusiness ProductSell = new ProductoVendidoBusiness();
     Console.WriteLine("-----------------OBTENER TODOS LOS PRODUCTOS VENDIDOS----------------------");
-    List<ProductoVendido> productosVendidos = productoVendidoDAO.GetAllProductosVendidos();
+    List<ProductoVendido> productosVendidos = ProductSell.GetAllProductosVendidosBussines();
     foreach (ProductoVendido pv in productosVendidos)
     {
         Console.WriteLine($"El producto vendido con id {pv.Id} es \n ID: {pv.Id} \n ID del Producto: {pv.IdProducto} \n Stock: {pv.Stock} \n ID de Venta: {pv.IdVenta}");
@@ -452,7 +444,7 @@ static void ObtenerTodosLosProductosVendidos()
 
 static void CrearProductoVendido()
 {
-    ProductoVendidoDAO productoVendidoDAO = new ProductoVendidoDAO();
+    ProductoVendidoBusiness ProductSell = new ProductoVendidoBusiness();
     Console.WriteLine("-----------------CREAR UN PRODUCTO VENDIDO----------------------");
     ProductoVendido productoVendidoNuevo = new ProductoVendido();
     Console.WriteLine("Ingrese el ID del producto vendido: ");
@@ -462,13 +454,13 @@ static void CrearProductoVendido()
     Console.WriteLine("Ingrese el ID de la Venta a la que pertenece: ");
     productoVendidoNuevo.IdVenta = Convert.ToInt32(Console.ReadLine());
 
-    int idProductoVendidoNuevo = productoVendidoDAO.AddProductoVendido(productoVendidoNuevo);
+    int idProductoVendidoNuevo = ProductSell.AddProductoVendidoBussines(productoVendidoNuevo);
     Console.WriteLine($"El id del producto vendido nuevo es {idProductoVendidoNuevo}");
 }
 
 static void ActualizarProductoVendido()
 {
-    ProductoVendidoDAO productoVendidoDAO = new ProductoVendidoDAO();
+    ProductoVendidoBusiness ProductSell = new ProductoVendidoBusiness();
     Console.WriteLine("-----------------ACTUALIZAR UN PRODUCTO VENDIDO----------------------");
     ProductoVendido productoVendidoAActualizar = new ProductoVendido();
     Console.WriteLine("Ingrese el id del producto vendido a actualizar: ");
@@ -480,17 +472,17 @@ static void ActualizarProductoVendido()
     Console.WriteLine("Ingrese el ID de la Venta a la que pertenece: ");
     productoVendidoAActualizar.IdVenta = Convert.ToInt32(Console.ReadLine());
 
-    ProductoVendido productoVendidoActualizado = productoVendidoDAO.UpdateProductoVendido(productoVendidoAActualizar);
+    ProductoVendido productoVendidoActualizado = ProductSell.UpdateProductoVendidoBussines(productoVendidoAActualizar);
     Console.WriteLine($"El producto vendido actualizado es \n ID: {productoVendidoActualizado.Id} \n ID del Producto: {productoVendidoActualizado.IdProducto} \n Stock: {productoVendidoActualizado.Stock} \n ID de Venta: {productoVendidoActualizado.IdVenta}");
 }
 
 static void EliminarProductoVendido()
 {
-    ProductoVendidoDAO productoVendidoDAO = new ProductoVendidoDAO();
+    ProductoVendidoBusiness ProductSell = new ProductoVendidoBusiness();
     Console.WriteLine("-----------------ELIMINAR UN PRODUCTO VENDIDO----------------------");
     Console.WriteLine("Ingrese el id del producto vendido a eliminar: ");
     int idProductoVendido = Convert.ToInt32(Console.ReadLine());
-    int productoVendidoEliminado = productoVendidoDAO.DeleteProductoVendido(idProductoVendido);
+    int productoVendidoEliminado = ProductSell.DeleteProductoVendidoBussines(idProductoVendido);
     Console.WriteLine($"El producto vendido eliminado es {productoVendidoEliminado}");
 }
 
@@ -498,19 +490,19 @@ static void EliminarProductoVendido()
 // Operaciones de Venta
 static void ObtenerVenta()
 {
-    VentaDAO ventaDAO = new VentaDAO();
+    VentaBusiness Venta = new VentaBusiness();
     Console.WriteLine("-----------------OBTENER UNA VENTA----------------------");
     Console.WriteLine("Ingrese el id de la venta a obtener: ");
     int idVenta = Convert.ToInt32(Console.ReadLine());
-    Venta venta = ventaDAO.GetVenta(idVenta);
+    Venta venta = Venta.GetVentaBussines(idVenta);
     Console.WriteLine($"La venta con id {venta.Id} es \n ID: {venta.Id} \n Comentarios: {venta.Comentarios} \n IdUsuario: {venta.IdUsuario}");
 }
 
 static void ObtenerTodasLasVentas()
 {
-    VentaDAO ventaDAO = new VentaDAO();
+    VentaBusiness Venta = new VentaBusiness();
     Console.WriteLine("-----------------OBTENER TODAS LAS VENTAS----------------------");
-    List<Venta> ventas = ventaDAO.GetAllVentas();
+    List<Venta> ventas = Venta.GetAllVentasBussines();
     foreach (Venta v in ventas)
     {
         Console.WriteLine($"La venta con id {v.Id} es \n ID: {v.Id} \n Comentarios: {v.Comentarios} \n IdUsuario: {v.IdUsuario}");
@@ -519,7 +511,7 @@ static void ObtenerTodasLasVentas()
 
 static void CrearVenta()
 {
-    VentaDAO ventaDAO = new VentaDAO();
+    VentaBusiness Venta = new VentaBusiness();
     Console.WriteLine("-----------------CREAR UNA VENTA----------------------");
     Venta ventaNueva = new Venta();
     Console.WriteLine("Ingrese los comentarios de la venta: ");
@@ -527,13 +519,13 @@ static void CrearVenta()
     Console.WriteLine("Ingrese el id del usuario: ");
     ventaNueva.IdUsuario = Convert.ToInt32(Console.ReadLine());
 
-    int idVentaNueva = ventaDAO.AddVenta(ventaNueva);
+    int idVentaNueva = Venta.AddVentaBussines(ventaNueva);
     Console.WriteLine($"El id de la venta nueva es {idVentaNueva}");
 }
 
 static void ActualizarVenta()
 {
-    VentaDAO ventaDAO = new VentaDAO();
+    VentaBusiness Venta = new VentaBusiness();
     Console.WriteLine("-----------------ACTUALIZAR UNA VENTA----------------------");
     Venta ventaAActualizar = new Venta();
     Console.WriteLine("Ingrese el id de la venta a actualizar: ");
@@ -543,16 +535,16 @@ static void ActualizarVenta()
     Console.WriteLine("Ingrese el id del usuario: ");
     ventaAActualizar.IdUsuario = Convert.ToInt32(Console.ReadLine());
 
-    Venta ventaActualizada = ventaDAO.UpdateVenta(ventaAActualizar);
+    Venta ventaActualizada = Venta.UpdateVentaBussines(ventaAActualizar);
     Console.WriteLine($"La venta actualizada es \n ID: {ventaActualizada.Id} \n Comentarios: {ventaActualizada.Comentarios} \n IdUsuario: {ventaActualizada.IdUsuario}");
 }
 
 static void EliminarVenta()
 {
-    VentaDAO ventaDAO = new VentaDAO();
+    VentaBusiness Venta = new VentaBusiness();
     Console.WriteLine("-----------------ELIMINAR UNA VENTA----------------------");
     Console.WriteLine("Ingrese el id de la venta a eliminar: ");
     int idVenta = Convert.ToInt32(Console.ReadLine());
-    int ventaEliminada = ventaDAO.DeleteVenta(idVenta);
+    int ventaEliminada = Venta.DeleteVentaBussines(idVenta);
     Console.WriteLine($"La venta eliminada es {ventaEliminada}");
 }

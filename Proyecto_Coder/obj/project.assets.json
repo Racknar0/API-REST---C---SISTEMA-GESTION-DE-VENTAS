@@ -146,6 +146,44 @@
             "rid": "win"
           }
         }
+      },
+      "SistemaGestionBusiness/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "SistemaGestionData": "1.0.0",
+          "SistemaGestionEntities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SistemaGestionBusiness.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SistemaGestionBusiness.dll": {}
+        }
+      },
+      "SistemaGestionData/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "SistemaGestionEntities": "1.0.0",
+          "System.Data.SqlClient": "4.8.5"
+        },
+        "compile": {
+          "bin/placeholder/SistemaGestionData.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SistemaGestionData.dll": {}
+        }
+      },
+      "SistemaGestionEntities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SistemaGestionEntities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SistemaGestionEntities.dll": {}
+        }
       }
     }
   },
@@ -462,10 +500,26 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "SistemaGestionBusiness/1.0.0": {
+      "type": "project",
+      "path": "../SistemaGestionBusiness/SistemaGestionBusiness.csproj",
+      "msbuildProject": "../SistemaGestionBusiness/SistemaGestionBusiness.csproj"
+    },
+    "SistemaGestionData/1.0.0": {
+      "type": "project",
+      "path": "../SistemaGestionData/SistemaGestionData.csproj",
+      "msbuildProject": "../SistemaGestionData/SistemaGestionData.csproj"
+    },
+    "SistemaGestionEntities/1.0.0": {
+      "type": "project",
+      "path": "../SistemaGestionEntities/SistemaGestionEntities.csproj",
+      "msbuildProject": "../SistemaGestionEntities/SistemaGestionEntities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "SistemaGestionBusiness >= 1.0.0",
       "System.Data.SqlClient >= 4.8.5"
     ]
   },
@@ -475,9 +529,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\FULL STACK\\22 C#\\_C# CoderHouse_1\\Proyecto_Coder\\Proyecto_Coder\\Proyecto_Coder.csproj",
-      "projectName": "Proyecto_Coder",
-      "projectPath": "H:\\FULL STACK\\22 C#\\_C# CoderHouse_1\\Proyecto_Coder\\Proyecto_Coder\\Proyecto_Coder.csproj",
+      "projectUniqueName": "H:\\FULL STACK\\22 C#\\_C# CoderHouse_1\\Proyecto_Coder\\Proyecto_Coder\\SistemaGestionUI.csproj",
+      "projectName": "SistemaGestionUI",
+      "projectPath": "H:\\FULL STACK\\22 C#\\_C# CoderHouse_1\\Proyecto_Coder\\Proyecto_Coder\\SistemaGestionUI.csproj",
       "packagesPath": "C:\\Users\\Racknaro\\.nuget\\packages\\",
       "outputPath": "H:\\FULL STACK\\22 C#\\_C# CoderHouse_1\\Proyecto_Coder\\Proyecto_Coder\\obj\\",
       "projectStyle": "PackageReference",
@@ -496,7 +550,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "H:\\FULL STACK\\22 C#\\_C# CoderHouse_1\\Proyecto_Coder\\SistemaGestionBusiness\\SistemaGestionBusiness.csproj": {
+              "projectPath": "H:\\FULL STACK\\22 C#\\_C# CoderHouse_1\\Proyecto_Coder\\SistemaGestionBusiness\\SistemaGestionBusiness.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
