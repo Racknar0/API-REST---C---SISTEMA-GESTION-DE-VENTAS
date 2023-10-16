@@ -5,11 +5,13 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaGestionUI", "Proyecto_Coder\SistemaGestionUI.csproj", "{1A549B54-A36C-4E9B-9CBE-FB81513770A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaGestionEntities", "SistemaGestionEntities\SistemaGestionEntities.csproj", "{169094E5-13EF-476D-8791-4AC532CC7512}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaGestionEntities", "SistemaGestionEntities\SistemaGestionEntities.csproj", "{169094E5-13EF-476D-8791-4AC532CC7512}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaGestionData", "SistemaGestionData\SistemaGestionData.csproj", "{04BAE864-D60C-4811-83D7-416268528DEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaGestionData", "SistemaGestionData\SistemaGestionData.csproj", "{04BAE864-D60C-4811-83D7-416268528DEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaGestionBusiness", "SistemaGestionBusiness\SistemaGestionBusiness.csproj", "{A51C8A65-BF37-4C12-B9F3-7251709F08F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaGestionBusiness", "SistemaGestionBusiness\SistemaGestionBusiness.csproj", "{A51C8A65-BF37-4C12-B9F3-7251709F08F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaGestionAPI", "SistemaGestionAPI\SistemaGestionAPI.csproj", "{14E14C99-DA7A-4B28-8F1C-8453496F8BBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{A51C8A65-BF37-4C12-B9F3-7251709F08F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A51C8A65-BF37-4C12-B9F3-7251709F08F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A51C8A65-BF37-4C12-B9F3-7251709F08F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14E14C99-DA7A-4B28-8F1C-8453496F8BBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14E14C99-DA7A-4B28-8F1C-8453496F8BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14E14C99-DA7A-4B28-8F1C-8453496F8BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14E14C99-DA7A-4B28-8F1C-8453496F8BBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

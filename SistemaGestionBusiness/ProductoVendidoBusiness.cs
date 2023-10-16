@@ -5,6 +5,23 @@ namespace SistemaGestionBusiness
 {
     public class ProductoVendidoBusiness
     {
+        private static ProductoVendidoBusiness _instance;
+        private static readonly object _lock = new object();
+
+        private ProductoVendidoBusiness() { }
+
+        public static ProductoVendidoBusiness GetInstance()
+        {
+            lock (_lock)
+            {
+                if (_instance == null)
+                {
+                    _instance = new ProductoVendidoBusiness();
+                }
+            }
+            return _instance;
+        }
+
         public ProductoVendido GetProductoVendidoBussines(int Id)
         {
             return ProductoVendidoDAO.GetProductoVendido(Id);
