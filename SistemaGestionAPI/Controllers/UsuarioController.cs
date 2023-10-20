@@ -47,6 +47,37 @@ namespace SistemaGestionAPI.Controllers
             usuarioBusiness.DeleteUsuarioBussines(Id);
         }
 
+        [HttpGet("GetUserName/{id}", Name = "GetUserName")]
+        public string GetUserName(int id)
+        {
+            return usuarioBusiness.GetUserNameBussines(id);
+        }
+
+        [HttpPost("Login", Name = "LoginUsuario")]
+        // Pedir usuario y contraseña en el body
+        public IActionResult LoginUsuario([FromForm] string nombreUsuario, [FromForm] string contrasenia)
+        {
+
+            try
+            {
+                Usuario usuario = usuarioBusiness.LoginUsuarioBussines(nombreUsuario, contrasenia);
+                if (usuario != null)
+                {
+                    return Ok(usuario);
+                } else
+                {
+                    // Autenticación fallida
+                    return StatusCode(401, "Autenticación fallida. El usuario no existe o las credenciales son incorrectas.");
+                }
+            } catch (Exception ex)
+            {
+                // Manejar la excepción
+                Console.WriteLine("Error durante el proceso de autenticación: " + ex.Message);
+                return StatusCode(401, "Error de autenticación. Por favor, verifique sus credenciales.");
+            }
+
+        }
+
 
     }
 }

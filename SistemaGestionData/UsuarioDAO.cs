@@ -89,8 +89,7 @@ namespace SistemaGestionData
                 }
 
                 return usuarios;
-            }
-            catch (Exception)
+            } catch (Exception)
             {
 
                 throw new Exception("Error al obtener los usuarios");
@@ -122,13 +121,12 @@ namespace SistemaGestionData
                     }
                 }
 
-                
-            }
-            catch (Exception)
+
+            } catch (Exception)
             {
                 throw new Exception("Error al agregar el usuario");
             }
-        }   
+        }
 
 
         public static Usuario UpdateUsuario(Usuario usuario)
@@ -184,8 +182,97 @@ namespace SistemaGestionData
             } catch (Exception)
             {
                 throw new Exception("Error al eliminar el usuario");
-            }   
+            }
         }
-        
+
+        public static string GetUsername(int id)
+        {
+            string query = "SELECT NombreUsuario FROM Usuarios WHERE Id = @Id";
+
+            try
+            {
+                using (SqlConnection conexion = ConexionDB.ObtenerConexion())
+                {
+                    conexion.Open();
+
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        comando.Parameters.Add(new SqlParameter("Id", SqlDbType.Int) { Value = id });
+
+                        using (SqlDataReader dataReader = comando.ExecuteReader())
+                        {
+                            if (dataReader.HasRows)
+                            {
+                                while (dataReader.Read())
+                                {
+                                    // Recuperar datos del usuario
+                                    string username = Convert.ToString(dataReader["NombreUsuario"]);
+
+                                    return username;
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+
+                return null;
+
+            } catch (Exception)
+            {
+
+                throw new Exception("Error al obtener el usuario");
+            }
+        }
+
+        // Login
+        public static Usuario LoginUsuario(string nombreUsuario, string contrasenia)
+        {
+            string query = "SELECT * FROM Usuarios WHERE NombreUsuario = @NombreUsuario AND Contrasenia = @Contrasenia";
+            Usuario usuarioObtenido = new Usuario();
+
+            try
+            {
+                using (SqlConnection conexion = ConexionDB.ObtenerConexion())
+                {
+                    conexion.Open();
+
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        comando.Parameters.Add(new SqlParameter("NombreUsuario", SqlDbType.VarChar) { Value = nombreUsuario });
+                        comando.Parameters.Add(new SqlParameter("Contrasenia", SqlDbType.VarChar) { Value = contrasenia });
+
+                        using (SqlDataReader dataReader = comando.ExecuteReader())
+                        {
+                            if (dataReader.HasRows)
+                            {
+                                while (dataReader.Read())
+                                {
+                                    // Recuperar datos del usuario
+                                    usuarioObtenido.Id = Convert.ToInt32(dataReader["Id"]);
+                                    usuarioObtenido.Nombre = Convert.ToString(dataReader["Nombre"]);
+                                    usuarioObtenido.Apellido = Convert.ToString(dataReader["Apellido"]);
+                                    usuarioObtenido.NombreUsuario = Convert.ToString(dataReader["NombreUsuario"]);
+                                    usuarioObtenido.Contrasenia = Convert.ToString(dataReader["Contrasenia"]);
+                                    usuarioObtenido.Mail = Convert.ToString(dataReader["Mail"]);
+                                }
+                            } else
+                            {
+                                // Retornar nil o null, según lo que necesites
+                                return null;
+                            }
+                        }
+                    }
+                }
+
+                return usuarioObtenido;
+
+            } catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el usuario: " + ex.Message);
+            }
+        }
+
     }
 }
